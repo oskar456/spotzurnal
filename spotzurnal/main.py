@@ -96,8 +96,9 @@ def main(clientid, date, station, replace):
             trackids.append(tid)
         else:
             undiscovered.append(track)
-    pct = 100*len(trackids)/n
-    print("Discovered {}/{} – {:.0f}%".format(len(trackids), n, pct))
+    discovered = len(trackids)
+    pct = 100*discovered/n
+    print("Discovered {}/{} – {:.0f}%".format(discovered, n, pct))
     print("Undiscovered tracks:")
     print("\n".join(
         f"{t.since:%H:%M}: {t.interpret} - {t.track}"
@@ -109,12 +110,20 @@ def main(clientid, date, station, replace):
         f"{sp.user}/playlist/{playlist}",
     )
     if replace:
-        r = sp.user_playlist_replace_tracks(sp.user, playlist, trackids[:100])
-    r = sp.user_playlist_tracks(sp.user, playlist, fields="total")
+        sp.user_playlist_replace_tracks(sp.user, playlist, trackids[:100])
+    total = sp.user_playlist_tracks(sp.user, playlist, fields="total")["total"]
+    if 0 < total < discovered and not replace:
+        print(
+            "Keeping {} tracks already in playlist, adding {} more.".format(
+                total, discovered - total,
+            ),
+        )
+    if total >= discovered and not replace:
+        print("No new tracks discovered.")
     sp.put_all_data(
         sp.user_playlist_add_tracks,
         trackids,
         sp.user,
         playlist,
-        offset=r["total"],
+        offset=total,
     )
