@@ -90,24 +90,25 @@ def main(clientid, date, station, replace):
     n = 0
     pl = croapi.get_cro_day_playlist(station, date)
     for n, track in enumerate(pl, start=1):
-        tid = sp.search_track_id(track)
         print(f"{track.since:%H:%M}: {track.interpret} - {track.track}")
+        tid = sp.search_track_id(track)
         if tid:
             trackids.append(tid)
         else:
             undiscovered.append(track)
     discovered = len(trackids)
     pct = 100*discovered/n
-    print("Discovered {}/{} – {:.0f}%".format(discovered, n, pct))
-    print("Undiscovered tracks:")
+    click.secho(f"Discovered {discovered}/{n} – {pct:.0f}%", bold=True)
+    click.secho("Undiscovered tracks:", bold=True, fg="red")
     print("\n".join(
         f"{t.since:%H:%M}: {t.interpret} - {t.track}"
         for t in undiscovered
     ))
     playlist = sp.get_or_create_playlist(plname)
-    print(
-        f"Playlist URL: https://open.spotify.com/user/"
+    click.secho(
+        "Playlist URL: https://open.spotify.com/user/"
         f"{sp.user}/playlist/{playlist}",
+        bold=True,
     )
     if replace:
         sp.user_playlist_replace_tracks(sp.user, playlist, trackids[:100])

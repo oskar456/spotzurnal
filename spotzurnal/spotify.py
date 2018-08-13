@@ -7,6 +7,7 @@ from pathlib import Path
 
 import spotipy
 import spotipy.util
+import click
 
 
 class Spotify(spotipy.Spotify):
@@ -65,7 +66,7 @@ class Spotify(spotipy.Spotify):
             artist = artist.split(",")[0].split("/")[0].split("&")[0]
             artist = artist.split("feat")[0].split("ft. ")[0]
             title = title.split("(")[0].split("feat")[0].split("ft. ")[0]
-            print(f"↓ Retried as {artist} - {title}")
+            click.secho(f"^ Retried as {artist} - {title}", fg="yellow")
             r = self.search(
                 f"artist:{artist} "
                 f"track:{title}",
@@ -76,7 +77,7 @@ class Spotify(spotipy.Spotify):
             items = r["tracks"]["items"]
         if not items:
             # Retry with just title
-            print(f"↓ Retried as track:{title}")
+            click.secho(f"^ Retried as track:{title}", fg="yellow")
             r = self.search(
                 f"track:{title}",
                 type="track",
@@ -87,21 +88,28 @@ class Spotify(spotipy.Spotify):
             if items:
                 ar, tr = self.getratios(track, items[0])
                 if ar < 0.5:
-                    print(f"↓ Unmatched with {ar:.2f}, {tr:.2f}")
-                    print(
-                        "↓ Sp.: {} - {}".format(
+                    click.secho(
+                        "^ Sp.: {} - {}".format(
                             *self.get_spotify_artist_title(items[0])
                         ),
+                        fg="red",
+                    )
+                    click.secho(
+                        f"^ Unmatched with {ar:.2f}, {tr:.2f}",
+                        fg="red",
                     )
                     items = []
+            else:
+                click.secho("^ Not found", fg="red")
         if items:
             ar, tr = self.getratios(track, items[0])
-            print(f"↓ Matched with {ar:.2f}, {tr:.2f}")
-            print(
-                "↓ Sp.: {} - {}".format(
+            click.secho(
+                "^ Sp.: {} - {}".format(
                     *self.get_spotify_artist_title(items[0])
                 ),
+                fg="green",
             )
+            click.secho(f"^ Matched with {ar:.2f}, {tr:.2f}", fg="green")
             return items[0]["id"]
 
     def add_tracks_to_playlist(
