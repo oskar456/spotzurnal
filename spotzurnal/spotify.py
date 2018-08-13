@@ -120,27 +120,21 @@ class Spotify(spotipy.Spotify):
             trackids = [trackids, ]
         self.user_playlist_add_tracks(username, playlistid, trackids)
 
-    @staticmethod
-    def get_all_data(func, *args, maxlimit=50, **kwargs):
-        offset = 0
-        results = []
-        while True:
-            kwargs['limit'] = maxlimit
-            kwargs['offset'] = offset
-            r = func(*args, **kwargs)
+    def get_all_data(self, func, *args, **kwargs):
+        r = func(*args, **kwargs)
+        results = r["items"]
+        while r["next"]:
+            r = self.next(r)
             results.extend(r["items"])
-            if r["next"] is None:
-                break
-            offset += maxlimit
         return results
 
     @staticmethod
-    def put_all_data(func, data, *args, maxlimit=100, offset=0, **kwargs):
-        for i in range(offset, len(data), maxlimit):
-            func(*args, data[i:i + maxlimit], **kwargs)
+    def put_all_data(func, data, *args, limit=100, offset=0, **kwargs):
+        for i in range(offset, len(data), limit):
+            func(*args, data[i:i + limit], **kwargs)
 
     def get_or_create_playlist(self, name, description=""):
-        playlists = self.get_all_data(self.current_user_playlists)
+        playlists = self.get_all_data(self.current_user_playlists, limit=50)
         for p in playlists:
             if p["name"] == name:
                 return p["id"]

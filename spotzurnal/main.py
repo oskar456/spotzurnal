@@ -121,10 +121,11 @@ def main(clientid, date, station, replace):
         )
     if total >= discovered and not replace:
         print("No new tracks discovered.")
-    sp.put_all_data(
-        sp.user_playlist_add_tracks,
-        trackids,
-        sp.user,
-        playlist,
-        offset=total,
-    )
+    else:
+        sp.put_all_data(
+            sp.user_playlist_add_tracks,
+            trackids,
+            sp.user,
+            playlist,
+            offset=total,
+        )
