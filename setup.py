@@ -6,7 +6,7 @@ readme = Path(__file__).with_name("README.rst").read_text()
 setup(
     name="spotzurnal",
     version="0.1",
-    description="Create Spotify playlists out of Czech Radio open data",
+    description="Create Spotify playlists out of the playlists of Czech Radio",
     long_description=readme,
     long_description_content_type="text/x-rst",
     url="https://github.com/oskar456/spotzurnal",
