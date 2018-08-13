@@ -1,19 +1,12 @@
 #!/usr/bin/env python3
 
-import datetime
-import locale
 import re
 import json
-from collections import namedtuple
 from difflib import SequenceMatcher
 from pathlib import Path
 
-import requests
-import dateutil.parser
 import spotipy
 import spotipy.util
-import click
-from click_datetime import Datetime
 
 
 class Spotify(spotipy.Spotify):
@@ -30,7 +23,7 @@ class Spotify(spotipy.Spotify):
             username,
             scope=scope,
             cache_path=credfile.parent / f"cache-{username}.json",
-            **creds
+            **creds,
         )
         self.user = username
         super().__init__(auth=token)
@@ -148,98 +141,3 @@ class Spotify(spotipy.Spotify):
             name,
         )
         return r["id"]
-
-
-def get_cro_day_playlist(station="radiozurnal", date: datetime.date=None):
-    """
-    Download the playlist from CRo API for a day.
-    """
-    url = "https://croapi.cz/data/v2/playlist/day/"
-    if date:
-        url += f"{date:%Y/%m/%d/}"
-    url += f"{station}.json"
-    r = requests.get(url).json()
-    for i in r.get("data", []):
-        i['since'] = dateutil.parser.parse(i['since'])
-        yield namedtuple("PlaylistItem", i.keys())(**i)
-
-
-stationnames = {
-    "radiozurnal": "Radiožurnál",
-    "dvojka": "Dvojka",
-    "radiowave": "Radio Wave",
-    "regina": "Regina DAB Praha",
-}
-
-
-@click.command()
-@click.option(
-    "--clientid",
-    metavar="<client_secrets_json_file>",
-    show_default=True,
-    type=click.Path(dir_okay=False, readable=True, exists=True),
-    default=str(Path(click.get_app_dir("spotzurnal")) / "clientid.json"),
-    help="Path to OAuth2 client secret JSON file.",
-)
-@click.option(
-    "--date",
-    type=Datetime(format='%Y-%m-%d'),
-    default=datetime.datetime.now(),
-)
-@click.option(
-    "--station",
-    type=click.Choice(stationnames.keys()),
-    default="radiozurnal",
-)
-@click.option("--replace/--no-replace")
-def main(clientid, date, station, replace):
-    sp = Spotify(credfile=clientid)
-    locale.setlocale(locale.LC_TIME, "cs_CZ")
-    mname = (
-        None, "ledna", "února", "března", "dubna", "května", "června",
-        "července", "srpna", "září", "října", "listopadu", "prosince",
-    )
-    plname = "{} {} {}. {} {}".format(
-        stationnames[station],
-        date.strftime("%A").lower(),
-        date.day,
-        mname[date.month],
-        date.year,
-    )
-    print(plname)
-    playlist = sp.get_or_create_playlist(plname)
-    trackids = []
-    undiscovered = []
-    pl = get_cro_day_playlist(station, date)
-    for n, track in enumerate(pl, start=1):
-        tid = sp.search_track_id(track)
-        print(f"{track.since:%H:%M}: {track.interpret} - {track.track}")
-        if tid:
-            trackids.append(tid)
-        else:
-            undiscovered.append(track)
-    pct = 100*len(trackids)/n
-    print("Discovered {}/{} – {:.0f}%".format(len(trackids), n, pct))
-    print("Undiscovered tracks:")
-    print("\n".join(
-        f"{t.since:%H:%M}: {t.interpret} - {t.track}"
-        for t in undiscovered
-    ))
-    print(
-        f"Playlist URL: https://open.spotify.com/user/"
-        f"{sp.user}/playlist/{playlist}",
-    )
-    if replace:
-        r = sp.user_playlist_replace_tracks(sp.user, playlist, trackids[:100])
-    r = sp.user_playlist_tracks(sp.user, playlist, fields="total")
-    sp.put_all_data(
-        sp.user_playlist_add_tracks,
-        trackids,
-        sp.user,
-        playlist,
-        offset=r["total"],
-    )
-
-
-if __name__ == "__main__":
-    main()
