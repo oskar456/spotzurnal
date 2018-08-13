@@ -5,10 +5,40 @@ import locale
 from pathlib import Path
 
 import click
-from click_datetime import Datetime
 
 from . import croapi
 from .spotify import Spotify
+
+
+class ClickDate(click.ParamType):
+    """
+    A date object parsed via datetime.strptime.
+    """
+
+    name = "date"
+
+    def __init__(self, fmt):
+        self.fmt = fmt
+
+    def get_metavar(self, param):
+        return self.fmt
+
+    def convert(self, value, param, ctx):
+        if isinstance(value, datetime.date):
+            return value
+        try:
+            return datetime.date.strptime(value, self.fmt)
+        except ValueError as ex:
+            self.fail(
+                'Could not parse datetime string "{datetime_str}"'
+                'formatted as {format} ({ex})'.format(
+                    datetime_str=value,
+                    format=self.fmt,
+                    ex=ex,
+                ),
+                param,
+                ctx,
+            )
 
 
 @click.command()
@@ -22,16 +52,25 @@ from .spotify import Spotify
 )
 @click.option(
     "--date",
-    type=Datetime(format='%Y-%m-%d'),
-    default=datetime.datetime.now(),
+    type=ClickDate('%Y-%m-%d'),
+    default=datetime.date.today(),
+    show_default=True,
+    help="Date of the playlist",
 )
 @click.option(
     "--station",
     type=click.Choice(croapi.get_cro_stations()),
     default="radiozurnal",
 )
-@click.option("--replace/--no-replace")
+@click.option(
+    "--replace/--no-replace",
+    help="Replace existing playlist instead of appending",
+)
 def main(clientid, date, station, replace):
+    """
+    Generate a Spotify playlist from a playlist published
+    by the Czech Radio.
+    """
     sp = Spotify(credfile=clientid)
     locale.setlocale(locale.LC_TIME, "cs_CZ")
     mname = (
