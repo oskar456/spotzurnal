@@ -7,6 +7,11 @@ This package generates Spotify_ playlists out of playlists published by
 Usage
 -----
 
+.. NOTE::
+   As of 2018-08, the version of `spotipy` library on PyPI, despite same
+   version number, `lacks some features <https://github.com/plamere/spotipy/issues/311>`_
+   Unless this issue is resolved, you have to use the GitHub version.
+
 First, you need to get you OAuth 2.0 client secrets in the `Spotify
 Developer Dashboard`_. You have to create an App, obtain the `Client ID`
 and `Client Secret` and in the settings, whitelist some arbitrary redirect
