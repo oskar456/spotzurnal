@@ -1,9 +1,6 @@
-#!/usr/bin/env python3
-
 import os
 import os.path
 import json
-from difflib import SequenceMatcher
 
 import spotipy
 from spotipy import oauth2
@@ -71,99 +68,6 @@ class Spotify(spotipy.Spotify):
     ):
         self.user, token = handle_oauth(credfile, username, scope)
         super().__init__(auth=token)
-
-    @staticmethod
-    def get_spotify_artist_title(spotrack):
-        spoartist = ", ".join(a["name"] for a in spotrack["artists"])
-        spotitle = spotrack["name"]
-        return spoartist, spotitle
-
-    @classmethod
-    def getratios(cls, track, spotrack):
-        sm = SequenceMatcher(lambda x: x in " ,;&()''`")
-        artist = track.interpret.lower().replace("´", "'")
-        title = track.track.lower().replace("´", "'")
-        spoartist, spotitle = (x.lower() for x in
-                               cls.get_spotify_artist_title(spotrack))
-        sm.set_seqs(artist, spoartist)
-        aratio = sm.ratio()
-        sm.set_seqs(title, spotitle)
-        tratio = sm.ratio()
-        return aratio, tratio
-
-    def search_track_id(self, track):
-        artist = track.interpret.lower().replace("´", "'")
-        title = track.track.lower().replace("´", "'")
-        r = self.search(
-            f"artist:{artist} "
-            f"track:{title}",
-            type="track",
-            limit=10,
-            market="CZ",
-        )
-        items = r["tracks"]["items"]
-        if not items:
-            # Retry with only first artist and without parentheses in title
-            artist = artist.split(",")[0].split("/")[0].split("&")[0]
-            artist = artist.split("feat")[0].split("ft.")[0]
-            title = title.split("(")[0].split("feat")[0].split("ft. ")[0]
-            click.secho(f"^ Retried as {artist} - {title}", fg="yellow")
-            r = self.search(
-                f"artist:{artist} "
-                f"track:{title}",
-                type="track",
-                limit=10,
-                market="CZ",
-            )
-            items = r["tracks"]["items"]
-        if not items:
-            # Retry with just title
-            title = track.track.lower().replace("´", "'")
-            title = title.translate(str.maketrans(",;&()", "     ", ".''`"))
-            click.secho(f"^ Retried as track:{title}", fg="yellow")
-            r = self.search(
-                f"track:{title}",
-                type="track",
-                limit=10,
-                market="CZ",
-            )
-            items = r["tracks"]["items"]
-            if items:
-                ara = []
-                for i in items:
-                    ar, tr = self.getratios(track, i)
-                    ara.append(ar)
-                n, ar = max(enumerate(ara), key=lambda x: x[1])
-                if ar < 0.5:
-                    click.secho(
-                        "^ Sp.: {} - {}".format(
-                            *self.get_spotify_artist_title(items[n])
-                        ),
-                        fg="red",
-                    )
-                    click.secho(
-                        f"^ Unmatched with {ar:.2f}, {tr:.2f}",
-                        fg="red",
-                    )
-                    items = []
-        if not items:
-            click.secho("^ Not found", fg="red")
-            return
-        ara, tra, ra = [], [], []
-        for i in items:
-            ar, tr = self.getratios(track, i)
-            ara.append(ar)
-            tra.append(tr)
-            ra.append(ar+tr)
-        n, r = max(enumerate(ra), key=lambda x: x[1])
-        click.secho(
-            "^ Sp.: {} - {}".format(
-                *self.get_spotify_artist_title(items[n])
-            ),
-            fg="green",
-        )
-        click.secho(f"^ Matched with {ara[n]:.2f}, {tra[n]:.2f}", fg="green")
-        return items[n]["id"]
 
     def add_tracks_to_playlist(
         self, trackids, username="0skat-cz",

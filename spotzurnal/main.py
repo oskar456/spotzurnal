@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import datetime
 import locale
 from pathlib import Path
@@ -7,6 +5,7 @@ from pathlib import Path
 import click
 
 from . import croapi
+from . import matcher
 from .spotify import Spotify
 
 
@@ -90,18 +89,19 @@ def main(credentials, username, date, station, replace):
         date.year,
     )
     print(plname)
-    trackids = []
+    spotracks = []
     undiscovered = []
-    n = 0
     pl = croapi.get_cro_day_playlist(station, date)
     for n, track in enumerate(pl, start=1):
         print(f"{track.since:%H:%M}: {track.interpret} - {track.track}")
-        tid = sp.search_track_id(track)
-        if tid:
-            trackids.append(tid)
+        t = matcher.search_spotify_track(sp, track.interpret, track.track)
+        if t:
+            spotracks.append(t)
         else:
             undiscovered.append(track)
-    discovered = len(trackids)
+    discovered = len(spotracks)
+    if discovered < 1:
+        raise SystemExit("No tracks found!")
     pct = 100*discovered/n
     click.secho(f"Discovered {discovered}/{n} – {pct:.0f}%", bold=True)
     click.secho("Undiscovered tracks:", bold=True, fg="red")
@@ -115,6 +115,7 @@ def main(credentials, username, date, station, replace):
         f"{sp.user}/playlist/{playlist}",
         bold=True,
     )
+    trackids = [t["id"] for t in spotracks]
     if replace:
         sp.user_playlist_replace_tracks(sp.user, playlist, trackids[:100])
     total = sp.user_playlist_tracks(sp.user, playlist, fields="total")["total"]
