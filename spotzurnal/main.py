@@ -27,7 +27,7 @@ class ClickDate(click.ParamType):
         if isinstance(value, datetime.date):
             return value
         try:
-            return datetime.date.strptime(value, self.fmt)
+            return datetime.datetime.strptime(value, self.fmt).date()
         except ValueError as ex:
             self.fail(
                 'Could not parse datetime string "{datetime_str}"'
