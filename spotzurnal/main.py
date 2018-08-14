@@ -51,6 +51,11 @@ class ClickDate(click.ParamType):
     help="Path to OAuth2 client secret JSON file.",
 )
 @click.option(
+    "--username",
+    metavar="USER",
+    help="Spotify user name",
+)
+@click.option(
     "--date",
     type=ClickDate('%Y-%m-%d'),
     default=datetime.date.today(),
@@ -66,12 +71,12 @@ class ClickDate(click.ParamType):
     "--replace/--no-replace",
     help="Replace existing playlist instead of appending",
 )
-def main(clientid, date, station, replace):
+def main(clientid, username, date, station, replace):
     """
     Generate a Spotify playlist from a playlist published
     by the Czech Radio.
     """
-    sp = Spotify(credfile=clientid)
+    sp = Spotify(username=username, credfile=clientid)
     locale.setlocale(locale.LC_TIME, "cs_CZ")
     mname = (
         None, "ledna", "února", "března", "dubna", "května", "června",

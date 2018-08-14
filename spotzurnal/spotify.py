@@ -13,20 +13,22 @@ import click
 class Spotify(spotipy.Spotify):
     def __init__(
         self,
-        username="wx6cq56wxecdscpcmaiu2gd9r",
+        username=None,
         scope="playlist-modify-public",
         credfile="clientid.json",
     ):
         credfile = Path(credfile)
         with credfile.open() as f:
             creds = json.load(f)
+        if username:
+            creds["username"] = username
+        assert "username" in creds
         token = spotipy.util.prompt_for_user_token(
-            username,
             scope=scope,
             cache_path=credfile.parent / f"cache-{username}.json",
             **creds,
         )
-        self.user = username
+        self.user = creds["username"]
         super().__init__(auth=token)
 
     @staticmethod
