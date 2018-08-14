@@ -2,7 +2,6 @@
 
 import os
 import os.path
-import re
 import json
 from difflib import SequenceMatcher
 
@@ -95,46 +94,50 @@ class Spotify(spotipy.Spotify):
     def search_track_id(self, track):
         artist = track.interpret.lower().replace("´", "'")
         title = track.track.lower().replace("´", "'")
-        artist, title = [re.sub(r"([,.])([^\s])", r"\1 \2", x)
-                         for x in [artist, title]]
         r = self.search(
             f"artist:{artist} "
             f"track:{title}",
             type="track",
-            limit=1,
+            limit=10,
             market="CZ",
         )
         items = r["tracks"]["items"]
         if not items:
             # Retry with only first artist and without parentheses in title
             artist = artist.split(",")[0].split("/")[0].split("&")[0]
-            artist = artist.split("feat")[0].split("ft. ")[0]
+            artist = artist.split("feat")[0].split("ft.")[0]
             title = title.split("(")[0].split("feat")[0].split("ft. ")[0]
             click.secho(f"^ Retried as {artist} - {title}", fg="yellow")
             r = self.search(
                 f"artist:{artist} "
                 f"track:{title}",
                 type="track",
-                limit=1,
+                limit=10,
                 market="CZ",
             )
             items = r["tracks"]["items"]
         if not items:
             # Retry with just title
+            title = track.track.lower().replace("´", "'")
+            title = title.translate(str.maketrans(",;&()", "     ", ".''`"))
             click.secho(f"^ Retried as track:{title}", fg="yellow")
             r = self.search(
                 f"track:{title}",
                 type="track",
-                limit=1,
+                limit=10,
                 market="CZ",
             )
             items = r["tracks"]["items"]
             if items:
-                ar, tr = self.getratios(track, items[0])
+                ara = []
+                for i in items:
+                    ar, tr = self.getratios(track, i)
+                    ara.append(ar)
+                n, ar = max(enumerate(ara), key=lambda x: x[1])
                 if ar < 0.5:
                     click.secho(
                         "^ Sp.: {} - {}".format(
-                            *self.get_spotify_artist_title(items[0])
+                            *self.get_spotify_artist_title(items[n])
                         ),
                         fg="red",
                     )
@@ -143,18 +146,24 @@ class Spotify(spotipy.Spotify):
                         fg="red",
                     )
                     items = []
-            else:
-                click.secho("^ Not found", fg="red")
-        if items:
-            ar, tr = self.getratios(track, items[0])
-            click.secho(
-                "^ Sp.: {} - {}".format(
-                    *self.get_spotify_artist_title(items[0])
-                ),
-                fg="green",
-            )
-            click.secho(f"^ Matched with {ar:.2f}, {tr:.2f}", fg="green")
-            return items[0]["id"]
+        if not items:
+            click.secho("^ Not found", fg="red")
+            return
+        ara, tra, ra = [], [], []
+        for i in items:
+            ar, tr = self.getratios(track, i)
+            ara.append(ar)
+            tra.append(tr)
+            ra.append(ar+tr)
+        n, r = max(enumerate(ra), key=lambda x: x[1])
+        click.secho(
+            "^ Sp.: {} - {}".format(
+                *self.get_spotify_artist_title(items[n])
+            ),
+            fg="green",
+        )
+        click.secho(f"^ Matched with {ara[n]:.2f}, {tra[n]:.2f}", fg="green")
+        return items[n]["id"]
 
     def add_tracks_to_playlist(
         self, trackids, username="0skat-cz",
