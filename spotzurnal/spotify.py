@@ -1,34 +1,76 @@
 #!/usr/bin/env python3
 
+import os
+import os.path
 import re
 import json
 from difflib import SequenceMatcher
-from pathlib import Path
 
 import spotipy
-import spotipy.util
+from spotipy import oauth2
 import click
+
+
+def handle_oauth(credfile, username=None, scope=""):
+    save_creds = False
+    try:
+        with open(credfile) as f:
+            creds = json.load(f)
+    except IOError:
+        creds = {}
+        save_creds = True
+
+    if "client_id" not in creds:
+        creds["client_id"] = input("Enter Spotify App Client ID: ")
+        save_creds = True
+    if "client_secret" not in creds:
+        creds["client_secret"] = input("Enter Spotify App Client Secret: ")
+        save_creds = True
+    if "redirect_uri" not in creds:
+        creds["redirect_uri"] = "http://localhost:8080/"
+        click.secho(
+            f"Please add redirect URI \"{creds['redirect_uri']}\" "
+            "to the white-list in the Spotify App settings.", bold=True,
+        )
+        save_creds = True
+    sp_oauth = oauth2.SpotifyOAuth(
+        scope=scope,
+        **{
+            k: v for k, v in creds.items() if k in [
+                "client_id",
+                "client_secret",
+                "redirect_uri",
+            ]
+        },
+    )
+    if "refresh_token" not in creds:
+        auth_url = sp_oauth.get_authorize_url()
+        print(f"\nPlease navigate to: {auth_url}")
+        response = input("Enter the URL you were redirected to: ")
+        code = sp_oauth.parse_response_code(response)
+        token_info = sp_oauth.get_access_token(code)
+        creds["refresh_token"] = token_info["refresh_token"]
+        save_creds = True
+    else:
+        token_info = sp_oauth.refresh_access_token(creds["refresh_token"])
+    if "username" not in creds:
+        creds["username"] = username or input("Enter Spotify User name: ")
+        save_creds = True
+    if save_creds:
+        os.makedirs(os.path.dirname(credfile), mode=0o700, exist_ok=True)
+        with open(credfile, "w") as f:
+            json.dump(creds, f)
+    return username or creds["username"], token_info["access_token"]
 
 
 class Spotify(spotipy.Spotify):
     def __init__(
         self,
+        credfile="clientid.json",
         username=None,
         scope="playlist-modify-public",
-        credfile="clientid.json",
     ):
-        credfile = Path(credfile)
-        with credfile.open() as f:
-            creds = json.load(f)
-        if username:
-            creds["username"] = username
-        assert "username" in creds
-        token = spotipy.util.prompt_for_user_token(
-            scope=scope,
-            cache_path=credfile.parent / f"cache-{username}.json",
-            **creds,
-        )
-        self.user = creds["username"]
+        self.user, token = handle_oauth(credfile, username, scope)
         super().__init__(auth=token)
 
     @staticmethod

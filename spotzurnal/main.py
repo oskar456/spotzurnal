@@ -43,12 +43,12 @@ class ClickDate(click.ParamType):
 
 @click.command()
 @click.option(
-    "--clientid",
-    metavar="<client_secrets_json_file>",
+    "--credentials",
+    metavar="<credentials_json_file>",
     show_default=True,
-    type=click.Path(dir_okay=False, readable=True, exists=True),
-    default=str(Path(click.get_app_dir("spotzurnal")) / "clientid.json"),
-    help="Path to OAuth2 client secret JSON file.",
+    type=click.Path(dir_okay=False),
+    default=str(Path(click.get_app_dir("spotzurnal")) / "credentials.json"),
+    help="Path where to store credentials.",
 )
 @click.option(
     "--username",
@@ -71,12 +71,12 @@ class ClickDate(click.ParamType):
     "--replace/--no-replace",
     help="Replace existing playlist instead of appending",
 )
-def main(clientid, username, date, station, replace):
+def main(credentials, username, date, station, replace):
     """
     Generate a Spotify playlist from a playlist published
     by the Czech Radio.
     """
-    sp = Spotify(username=username, credfile=clientid)
+    sp = Spotify(username=username, credfile=credentials)
     locale.setlocale(locale.LC_TIME, "cs_CZ")
     mname = (
         None, "ledna", "února", "března", "dubna", "května", "června",
