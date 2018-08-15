@@ -3,10 +3,12 @@ import locale
 from pathlib import Path
 
 import click
+from yaml import safe_load
 
 from . import croapi
 from . import matcher
 from .spotify import Spotify
+from .cache import Cache
 
 
 class ClickDate(click.ParamType):
@@ -70,12 +72,32 @@ class ClickDate(click.ParamType):
     "--replace/--no-replace",
     help="Replace existing playlist instead of appending",
 )
-def main(credentials, username, date, station, replace):
+@click.option(
+    "--cache",
+    metavar="<cache_sqlite_file>",
+    show_default=True,
+    type=click.Path(dir_okay=False),
+    default=str(Path(click.get_app_dir("spotzurnal")) / "cache.sqlite"),
+    help="Path to SQLite cache. (Created if necessary)",
+)
+@click.option(
+    "--quirks",
+    metavar="<quirks_yaml_file>",
+    show_default=True,
+    type=click.File(),
+    help="Path to hand-kept quirks file",
+)
+def main(credentials, username, date, station, replace, cache, quirks):
     """
     Generate a Spotify playlist from a playlist published
     by the Czech Radio.
     """
     sp = Spotify(username=username, credfile=credentials)
+    c = Cache(cache)
+    if quirks:
+        q = safe_load(quirks)
+    else:
+        q = {"artists": {}, "tracks": {}}
     locale.setlocale(locale.LC_TIME, "cs_CZ")
     mname = (
         None, "ledna", "února", "března", "dubna", "května", "června",
@@ -94,7 +116,25 @@ def main(credentials, username, date, station, replace):
     pl = croapi.get_cro_day_playlist(station, date)
     for n, track in enumerate(pl, start=1):
         print(f"{track.since:%H:%M}: {track.interpret} - {track.track}")
-        t = matcher.search_spotify_track(sp, track.interpret, track.track)
+        c.store_cro_track(track)
+        if track.track_id in q["tracks"]:
+            m = q["tracks"][track.track_id]
+            prefix = "spotify:track:"
+            if m.startswith(prefix):
+                m = m[len(prefix):]
+        else:
+            m = c.lookup_match(track)
+        if m:
+            click.secho("^ Matched from the cache/quirks", fg="green")
+            t = {"id": m}
+        else:
+            interpret = track.interpret
+            if track.interpret_id in q["artists"]:
+                interpret = q["artists"][track.interpret_id]
+                print(f"Corrected artist to {interpret}")
+            t = matcher.search_spotify_track(sp, interpret, track.track)
+            if t:
+                c.store_spotify_track(t, track)
         if t:
             spotracks.append(t)
         else:
@@ -106,7 +146,8 @@ def main(credentials, username, date, station, replace):
     click.secho(f"Discovered {discovered}/{n} – {pct:.0f}%", bold=True)
     click.secho("Undiscovered tracks:", bold=True, fg="red")
     print("\n".join(
-        f"{t.since:%H:%M}: {t.interpret} - {t.track}"
+        f"{t.since:%H:%M}: {t.interpret} ({t.interpret_id}) - "
+        f"{t.track} ({t.track_id})"
         for t in undiscovered
     ))
     playlist = sp.get_or_create_playlist(plname)
