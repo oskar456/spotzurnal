@@ -1,4 +1,7 @@
 import sqlite3
+from collections import namedtuple
+
+from click import secho
 
 
 class Cache:
@@ -44,13 +47,15 @@ class Cache:
             "FROM cro_tracks JOIN cro_interprets USING(interpret_id) "
             "WHERE track_id = ?",
             (track.track_id,),
-        )
-        c = c.fetchone()
+        ).fetchone()
         if c:
             tid, t, iid, i = c
-            print(f"Cache: {i} - {t} ({iid} - {tid})")
+            # If this fails, the CRo ids cannot be trusted
             assert track.interpret_id == iid
-            # Hard assertion fails, maybe some difflib could be used here
+            # Hard assertion on names fails regularly,
+            # maybe some difflib could be used here.
+            if track.track != t or track.interpret != i:
+                secho(f"Cache: {i} - {t} ({iid} - {tid})", fg="yellow")
 
         with self.con:
             self.con.execute(
@@ -99,3 +104,14 @@ class Cache:
         ).fetchone()
         if r:
             return r[0]
+
+    def get_unmatched_tracks(self):
+        r = self.con.execute(
+            "SELECT track_id, interpret_id, track, interpret "
+            "FROM cro_tracks JOIN cro_interprets USING(interpret_id) "
+            "LEFT JOIN cro_spo_tracks "
+            "ON track_id = cro_track_id "
+            "WHERE spo_track_id IS NULL",
+        )
+        for row in r:
+            yield namedtuple("Track", row.keys())(**row)
