@@ -144,12 +144,13 @@ def main(credentials, username, date, station, replace, cache, quirks):
         raise SystemExit("No tracks found!")
     pct = 100*discovered/n
     click.secho(f"Discovered {discovered}/{n} – {pct:.0f}%", bold=True)
-    click.secho("Undiscovered tracks:", bold=True, fg="red")
-    print("\n".join(
-        f"{t.since:%H:%M}: {t.interpret} ({t.interpret_id}) - "
-        f"{t.track} ({t.track_id})"
-        for t in undiscovered
-    ))
+    if undiscovered:
+        click.secho("Undiscovered tracks:", bold=True, fg="red")
+        print("\n".join(
+            f"{t.since:%H:%M}: {t.interpret} ({t.interpret_id}) - "
+            f"{t.track} ({t.track_id})"
+            for t in undiscovered
+        ))
     playlist = sp.get_or_create_playlist(plname)
     click.secho(
         "Playlist URL: https://open.spotify.com/user/"
