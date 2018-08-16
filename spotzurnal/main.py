@@ -112,7 +112,7 @@ def main(credentials, username, date, station, replace, cache, quirks):
     )
     print(plname)
     spotracks = []
-    undiscovered = []
+    unmatched = []
     pl = croapi.get_cro_day_playlist(station, date)
     for n, track in enumerate(pl, start=1):
         print(f"{track.since:%H:%M}: {track.interpret} - {track.track}")
@@ -138,18 +138,18 @@ def main(credentials, username, date, station, replace, cache, quirks):
         if t:
             spotracks.append(t)
         else:
-            undiscovered.append(track)
-    discovered = len(spotracks)
-    if discovered < 1:
+            unmatched.append(track)
+    matched = len(spotracks)
+    if matched < 1:
         raise SystemExit("No tracks found!")
-    pct = 100*discovered/n
-    click.secho(f"Discovered {discovered}/{n} – {pct:.0f}%", bold=True)
-    if undiscovered:
-        click.secho("Undiscovered tracks:", bold=True, fg="red")
+    pct = 100*matched/n
+    click.secho(f"Matched {matched}/{n} – {pct:.0f}%", bold=True)
+    if unmatched:
+        click.secho("Unmatched tracks:", bold=True, fg="red")
         print("\n".join(
             f"{t.since:%H:%M}: {t.interpret} ({t.interpret_id}) - "
             f"{t.track} ({t.track_id})"
-            for t in undiscovered
+            for t in unmatched
         ))
     playlist = sp.get_or_create_playlist(plname)
     click.secho(
@@ -161,14 +161,14 @@ def main(credentials, username, date, station, replace, cache, quirks):
     if replace:
         sp.user_playlist_replace_tracks(sp.user, playlist, trackids[:100])
     total = sp.user_playlist_tracks(sp.user, playlist, fields="total")["total"]
-    if 0 < total < discovered and not replace:
+    if 0 < total < matched and not replace:
         print(
             "Keeping {} tracks already in playlist, adding {} more.".format(
-                total, discovered - total,
+                total, matched - total,
             ),
         )
-    if total >= discovered and not replace:
-        print("No new tracks discovered.")
+    if total >= matched and not replace:
+        print("No new tracks found.")
     else:
         sp.put_all_data(
             sp.user_playlist_add_tracks,
