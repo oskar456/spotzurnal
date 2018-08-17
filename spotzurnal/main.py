@@ -77,7 +77,7 @@ def get_artist_quirk(quirks, interpret_id):
 
 @click.command()
 @click.option(
-    "--credentials",
+    "--credentials", "-c",
     metavar="<credentials_json_file>",
     show_default=True,
     type=click.Path(dir_okay=False),
@@ -85,24 +85,24 @@ def get_artist_quirk(quirks, interpret_id):
     help="Path where to store credentials.",
 )
 @click.option(
-    "--username",
+    "--username", "-u",
     metavar="USER",
     help="Spotify user name",
 )
 @click.option(
-    "--date",
+    "--date", "-d",
     type=ClickDate('%Y-%m-%d'),
     default=datetime.date.today(),
     show_default=True,
     help="Date of the playlist",
 )
 @click.option(
-    "--station",
+    "--station", "-s",
     type=click.Choice(croapi.get_cro_stations()),
     default="radiozurnal",
 )
 @click.option(
-    "--replace/--no-replace",
+    "--replace/--no-replace", "-r",
     help="Replace existing playlist instead of appending",
 )
 @click.option(
@@ -114,7 +114,7 @@ def get_artist_quirk(quirks, interpret_id):
     help="Path to SQLite cache. (Created if necessary)",
 )
 @click.option(
-    "--quirks",
+    "--quirks", "-q",
     metavar="<quirks_yaml_file>",
     show_default=True,
     type=click.File(),
