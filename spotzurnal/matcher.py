@@ -35,8 +35,8 @@ def get_ratios(spotrack, croartist, crotitle):
 def search_spotify_track(sp, croartist, crotitle):
     """Do a Spotify search for a track of an artist."""
 
-    artist = croartist.lower().replace("´", "'")
-    title = crotitle.lower().replace("´", "'")
+    artist = croartist.lower().replace("´", "'").replace("+", " ")
+    title = crotitle.lower().replace("´", "'").replace("+", " ")
     r = sp.search(
         f"artist:{artist} "
         f"track:{title}",
@@ -82,7 +82,7 @@ def search_spotify_track(sp, croartist, crotitle):
                     f"^ Unmatched with {ar:.2f}, {tr:.2f}",
                     fg="red",
                 )
-                items = []
+                return
     if not items:
         click.secho("^ Not found", fg="red")
         return

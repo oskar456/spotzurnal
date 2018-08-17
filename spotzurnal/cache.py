@@ -55,7 +55,12 @@ class Cache:
             # Hard assertion on names fails regularly,
             # maybe some difflib could be used here.
             if track.track != t or track.interpret != i:
-                secho(f"Cache: {i} - {t} ({iid} - {tid})", fg="yellow")
+                secho(
+                    f"{track.since:%H:%M}: {track.interpret} "
+                    f"- {track.track}\n"
+                    f"Cache: {i} - {t} ({iid} - {tid})",
+                    fg="yellow",
+                )
 
         with self.con:
             self.con.execute(
