@@ -45,11 +45,13 @@ def quirkgen(cache, quirks, output):
     # We generate our custom YAML with coments
     output.write("---\n\ntracks:\n")
     for t in tracks:
-        quirk = q["tracks"].get(t.track_id, "")
+        quirk = q["tracks"].pop(t.track_id, "")
         output.write(
             f"# {t.interpret} ({t.interpret_id}) - {t.track}\n"
             f"  {t.track_id}: \"{quirk}\"\n",
         )
+    for k, v in q["tracks"].items():
+        output.write(f"  {k}: \"{v}\"\n")
     output.write("\nartists:\n")
     for k, v in q["artists"].items():
         output.write(f"  {k}: \"{v}\"\n")
