@@ -5,8 +5,6 @@ tracks:
   7481: ""
 # ELÁN (3025) - KDE SI
   7521: ""
-# Shakespears Sister (3054) - STAY
-  7553: ""
 # BERNIE PAUL (2975) - EVERYBODY'S  ROCKIN'
   7570: "7lNVko4cZh7PvCjXnZm6H3"
 # SARAH BRIGHTMAN (3111) - EDEN
@@ -35,8 +33,6 @@ tracks:
   7958: ""
 # MAGGIE REILLY (3267) - EVERY SINGLE HEARTBEAT
   7981: ""
-# S&G - Mrs. Robinson
-  8012: "spotify:track:0iOZM63lendWRTTeKhZBSC"
 # PETER GABRIEL (3356) - THE SOLSBURY HILL
   8099: "spotify:track:6vZZtivPrtpggT5SSXsYTy"
 # IVA FRÜHLINGOVÁ (3363) - OU TU VEUX QUAND TU VEUX
@@ -59,6 +55,8 @@ tracks:
   8585: ""
 # RICCHI E POVERI (3528) - COMME VORREI
   8631: ""
+# VĚRA ŠPINAROVÁ (3190) - GEORGIA
+  8767: ""
 # DALIBOR JANDA (3525) - MODRÉ NEBE NAD HLAVOU
   8876: ""
 # PAVOL HAMMEL (3611) - ZVONKOHRA
@@ -115,6 +113,8 @@ tracks:
   11201: ""
 # ART COMPANY (4419) - SUSANNA
   11209: ""
+# ZUCCHERO,  CHEB MAMI (4460) - COSI CESLESTE
+  11352: ""
 # MALCOLM McLAREN, CATHERINE DENEUVE (4517) - PARIS PARIS
   11507: ""
 # WHAM! (4520) - WAKE ME UP BEFORE YOU GOGO
@@ -129,6 +129,8 @@ tracks:
   11948: ""
 # ELO (3138) - ROCK'N'ROLL IS KING
   11968: "spotify:track:7gfEl33nkWVfSyOglYEpGE"
+# LUCIE VONDRÁČKOVÁ (3694) - LÁSKA NA STO LET
+  11974: ""
 # BOBBY McFERRIN (309) - DON´ T WORRY,BE HAPPY
   11982: "spotify:track:5YbgcwHjQhdT1BYQ4rxWlD"
 # B.S.P. (4644) - ZEMĚ VZDÁLENÁ
@@ -175,6 +177,8 @@ tracks:
   15728: ""
 # PAUL SIMON, ART GARFUNKEL (3227) - THE TIMES THEY ARE A CHANGING
   16234: "3sO5oZ9NLbAlU6h1qVCPJq"
+# INXS (3100) - NEVER TEARS US APART
+  16282: ""
 # IVA FRÜHLINGOVÁ (3363) - LA MUERTE
   16519: ""
 # ŽLUTÝ PES (3403) - INDIÁNSKÁ DÝMKA MÍRU
@@ -307,6 +311,8 @@ tracks:
   42827: ""
 # TEAM (3009) - NEMÁM ČO ZTRATIŤ
   42829: ""
+# MACKLEMORE & RYAN LEWIS (12300) - SOME LOVE FEAT. MARY LAMBERT
+  42855: ""
 # O5 A RADEČEK FEAT. MÁRIA ČÍROVÁ (12312) - VLOUPÁM SE
   42880: ""
 # JAMES ARTHUR (6471) - SAY YOU WAN'T LET GO
@@ -317,6 +323,8 @@ tracks:
   43057: "spotify:track:0xM88xobymkMgg46MStfnV"
 # FILIP ZANGI,  PURPUR (12421) - YOUTUBERKA
   43153: ""
+# CEE LO GREEN (109) - F++K YOU
+  43196: ""
 # CLEAN BANDIT FEAT. SHARNA BASS (12470) - EXTRAORDINERY
   43307: "spotify:track:1NAa5SLZgH2tXhQLWeXUUL"
 # BLACK SNAKE (10303) - LAHA PES II.
@@ -369,13 +377,25 @@ tracks:
   56213: "spotify:track:7u5jZCXr6T0uF8FXBLtLIz"
 # BARRY WHITE & LISA STANSFIELD (16928) - All Around The World
   56230: "spotify:track:093jFc637fdmVNcrQDE9Tj"
+# Milo Kral Band (16962) - Paríž
+  56331: ""
+# Shakespears Sister (3054) - STAY
+  7553: ""
+# PAUL SIMON, ART GARFUNKEL (3227) - MRS.ROBINSON
+  8012: "spotify:track:0iOZM63lendWRTTeKhZBSC"
 
 artists:
+# UB 40
   3178: "UB40"
+# U 2
   2278: "U2"
+# PAUL SIMON, ART GARFUNKEL
   3227: "Simon & Garfunkel"
+# MIROSLAV ŽBIRKA
   3000: "Miro Žbirka"
+# O5 A RADEČEK
   4548: "O5 & Radecek"
+# ELO
   3138: "Electric Light Orchestra"
 
 ...

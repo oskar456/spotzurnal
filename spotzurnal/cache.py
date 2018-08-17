@@ -115,3 +115,21 @@ class Cache:
         )
         for row in r:
             yield namedtuple("Track", row.keys())(**row)
+
+    def get_cro_track(self, track_id):
+        r = self.con.execute(
+            "SELECT track_id, track, interpret_id, interpret "
+            "FROM cro_tracks JOIN cro_interprets USING(interpret_id) "
+            "WHERE track_id = ?",
+            (track_id,),
+        ).fetchone()
+        return namedtuple("Track", r.keys())(**r)
+
+    def get_cro_interpret(self, interpret_id):
+        r = self.con.execute(
+            "SELECT interpret_id, interpret "
+            "FROM cro_interprets "
+            "WHERE interpret_id = ?",
+            (interpret_id,),
+        ).fetchone()
+        return namedtuple("Interpret", r.keys())(**r)
