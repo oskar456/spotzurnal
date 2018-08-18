@@ -79,11 +79,10 @@ class Spotify(spotipy.Spotify):
 
     def get_all_data(self, func, *args, **kwargs):
         r = func(*args, **kwargs)
-        results = r["items"]
+        yield from r["items"]
         while r["next"]:
             r = self.next(r)
-            results.extend(r["items"])
-        return results
+            yield from r["items"]
 
     @staticmethod
     def put_all_data(func, data, *args, limit=100, offset=0, **kwargs):
