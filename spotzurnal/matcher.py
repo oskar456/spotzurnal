@@ -50,15 +50,15 @@ def search_spotify_track(sp, croartist, crotitle):
         artist2 = artist.split(",")[0].split("/")[0].split("&")[0]
         artist2 = artist2.split("feat")[0].split("ft.")[0]
         title2 = title.split("(")[0].split("feat")[0].split("ft. ")[0]
-        click.secho(f"^ Retrying as {artist2} - {title2}", fg="yellow")
-        r = sp.search(
-            f"artist:{artist2} "
-            f"track:{title2}",
-            type="track",
-            limit=10,
-            market="CZ",
-        )
-        items = r["tracks"]["items"]
+        if artist2 != artist or title2 != title:
+            click.secho(f"^ Retrying as {artist2} - {title2}", fg="yellow")
+            r = sp.search(
+                f"artist:{artist2} track:{title2}",
+                type="track",
+                limit=10,
+                market="CZ",
+            )
+            items = r["tracks"]["items"]
     if not items:
         # Retry with just title
         title = title.translate(str.maketrans(",;&()", "     ", ".''`"))
