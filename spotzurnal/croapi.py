@@ -9,6 +9,17 @@ _stationnames = {
     "dvojka": "Dvojka",
     "radiowave": "Radio Wave",
     "regina": "Regina DAB Praha",
+    "strednicechy": "Region",
+    "liberec": "Liberec",
+    "sever": "Sever",
+    "cb": "České Budějovice",
+    "vysocina": "Vysočina",
+    "pardubice": "Pardubice",
+    "hradec": "Hradec Králové",
+    "brno": "Brno",
+    "olomouc": "Olomouc",
+    "ostrava": "Ostrava",
+    "zlin": "Zlín",
 }
 
 
@@ -18,6 +29,13 @@ def get_cro_stations():
 
 def get_cro_station_name(station):
     return _stationnames[station]
+
+
+def get_cro_station_id(name):
+    try:
+        return next(k for k, v in _stationnames.items() if v == name)
+    except StopIteration:
+        pass
 
 
 def get_cro_day_playlist(station="radiozurnal", date: datetime.date=None):
