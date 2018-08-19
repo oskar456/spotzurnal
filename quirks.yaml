@@ -1,6 +1,10 @@
 ---
 
 tracks:
+# PRINCE OF TENNIS (2250) - Does This Make You Feel Alright?
+  6927: ""
+# COCOROSIE (847) - We Are On Fire
+  7312: ""
 # VARIOUS ARTISTS (2990) - PERFECT DAY '97
   7481: ""
 # ELÁN (3025) - KDE SI
@@ -75,6 +79,8 @@ tracks:
   8789: ""
 # DONNA SUMMER (3681) - I DON T WANNA GET HURT
   8798: ""
+# MARC ALMOND/GENE PITNEY (3708) - SOMETHING S GOTTEN HOLD OF MY HEART
+  8869: ""
 # DALIBOR JANDA (3525) - MODRÉ NEBE NAD HLAVOU
   8876: ""
 # PAVOL HAMMEL (3611) - ZVONKOHRA
@@ -95,6 +101,8 @@ tracks:
   9043: ""
 # PAVOL HABERA (3195) - JEDINÁ
   9050: ""
+# JAN NEDVĚD/FRANTIŠEK NEDVĚD (3784) - VŠECHNO NEJLEPŠÍ
+  9099: ""
 # HARPO (3796) - MOVIE STAR
   9127: "https://open.spotify.com/track/4t9EUCjCPbdfqtOH25k8AU"
 # ŠÁRKA REZKOVÁ (3658) - POJĎ A DEJ MI PUSU
@@ -109,6 +117,8 @@ tracks:
   9362: ""
 # KEČUP (3710) - SLEPÁ
   9370: ""
+# BRATŘI EBENOVÉ (3876) - TRAMPSKÁ
+  9378: ""
 # ZUZANA NORISOVÁ (3788) - SUGAR TOWN ( Š, Š, Š)
   9380: "spotify:track:117hy3a1uCR9umj26dSWIh"
 # MODERN TALKING (3894) - CHERY, CHERY LADY
@@ -193,6 +203,8 @@ tracks:
   11201: ""
 # ART COMPANY (4419) - SUSANNA
   11209: ""
+# ROBERT KŘESŤAN/DRUHÁ TRÁVA (4440) - TANEČNICE
+  11286: ""
 # ZUCCHERO,  CHEB MAMI (4460) - COSI CESLESTE
   11352: ""
 # JAROMÍR NOHAVICA (3261) - MILIONÁŘ
@@ -215,6 +227,8 @@ tracks:
   11948: ""
 # ELO (3138) - ROCK'N'ROLL IS KING
   11968: "spotify:track:7gfEl33nkWVfSyOglYEpGE"
+# VLASTA REDL (3544) - VEČER KŘUPAVÝCH SRDÍČEK
+  11970: ""
 # LUCIE VONDRÁČKOVÁ (3694) - LÁSKA NA STO LET
   11974: "https://open.spotify.com/track/7sO9Y3BBwBEPnKTnB1zRlT"
 # BOBBY McFERRIN (309) - DON´ T WORRY,BE HAPPY
@@ -253,6 +267,8 @@ tracks:
   12986: ""
 # LENNY KRAVITZ (4679) - IT AIN´T OVER TILL IT´S OVER
   13105: "https://open.spotify.com/track/6VnpKLtfNH4Dk09YSGPSyR"
+# PETR KALANDRA (5005) - DĚTSKÉ ŠATY
+  13256: ""
 # ŽALMAN A SPOL. (4022) - KDYBY TADY BYLA TAKOVÁ PANENKA
   13323: ""
 # KAMIL STŘIHAVKA (3476) - KDYŽ SE SNÁŠÍ DÉŠŤ
@@ -283,6 +299,8 @@ tracks:
   14913: ""
 # PETR KALANDRA & BLUES SESSION (5531) - DĚTSKÉ ŠATY
   15107: ""
+# FELIX SLOVÁČEK (3575) - AMORADO
+  15163: ""
 # RŮZNÍ ZPĚVÁCI (5633) - PERFECT DAY
   15728: ""
 # PAUL SIMON, ART GARFUNKEL (3227) - THE TIMES THEY ARE A CHANGING
@@ -297,10 +315,14 @@ tracks:
   16631: ""
 # ŠÁRKA REZKOVÁ (3658) - BÍLÁ ORCHIDEJ
   17105: ""
+# LEO SAYER (3249) - I CAN'T STOP LOVIN YOU
+  17635: ""
 # KOLLERBAND (6289) - LEHKÁ
   17663: ""
 # LARRY MULLEN, ADAM CLAYTON (6409) - THEME FROM MISSION: IMPOSSIBLE
   18035: ""
+# DNÉ (2087) - Like Physical (I Do Not Love remix)
+  18049: ""
 # RADEK TOMÁŠEK (3572) - ZPÍVAL JEN ROCKENROL,NIC VÍC
   18243: "https://open.spotify.com/track/5KTmvu3nHtxGXoqs8PRWWG"
 # DIRE STRAITS (2973) - SULTANS OF SWINGS
@@ -311,6 +333,8 @@ tracks:
   19458: ""
 # KAREL GOTT (3502) - OH, PRETTY WOMAN
   19770: "spotify:track:0WQ1ja10MyhBcrmGbt5P3R"
+# EVA A VAŠEK (6942) - POUPĚ LÁSKY
+  19845: ""
 # MAREK EBEN/IVA BITTOVÁ (6892) - TICHÁ DOMÁCNOST
   20315: "1JtDgQFktj5LboyJX4gnZN"
 # PETER NAGY (3359) - KRISTÝNKA IBA SPÍ
@@ -357,22 +381,52 @@ tracks:
   24163: ""
 # SIMON AND GARFUNKEL (5382) - THE TIMES THEY ARE THE CHANGING
   24281: "https://open.spotify.com/track/3sO5oZ9NLbAlU6h1qVCPJq"
+# JANA CHLÁDKOVÁ (5407) - NEPTEJ SE
+  24375: ""
 # ROBERT PLANT (8366) - 29 PALMS
   24814: ""
+# ELASTICA (8377) - 2:1
+  24874: ""
+# AID KID (8415) - NTRF
+  25027: ""
 # MOTHER'S ANGELS (8451) - PYŽAMO
   25205: ""
+# KOOL AID (8462) - Unicorn Ache
+  25258: ""
+# PEACH KELLI POP (8485) - Mindreader
+  25357: ""
 # CELTIC SPIRIT (5525) - LYRA (TA MUID)
   25672: "spotify:track:3RkdMos2jA6tGqSODLoUGb"
 # LES REYES (8599) - QUANDO,QUANDO,QUANDO
   25896: ""
+# HISSING FAUNA (833) - Bad Kissingen
+  26042: ""
+# THOOLA (2629) - Empty Box
+  26147: ""
+# SHURA (8695) - Just Once
+  26311: ""
 # PATTY SMYTH/DON HENLEY (8698) - SOMETIMES LOVE JUST AIN T ENOUGH
   26330: ""
+# MARCELA BŘEZINOVÁ/OK BAND (8699) - HÁDEJ
+  26331: ""
+# THE UNICORNS (8776) - Let Me Sleep
+  26633: ""
+# STRANGERS IN THE CITY (8778) - Home
+  26637: ""
+# HEIDI JANKŮ,  VÁCLAV PATEJDL (8826) - ZTRACENÝ RÁJ
+  26871: ""
+# DEATHS (6345) - Lonewolves
+  26898: ""
 # JAMES BLUNT (3118) - YOU ARE SO BEAUTIFUL
   26904: "spotify:track:0vg4WnUWvze6pBOJDTq99k"
 # PINK (7283) - YOU ARE PERFECT
   26922: ""
+# NAČEVA (8374) - Jdeš krajinou
+  26951: ""
 # V.Bartošová (8499) - Kristýna
   27064: ""
+# TERRIBLE TRUTHS (8994) - False Hope
+  27599: ""
 # PORTLESS (9100) - 5.15
   28089: ""
 # OLIVIA NEWTON-JOHN (3667) - GREASE MEGAMIX - YOU'RE THE ONE-GREASED LIGHTING-SUMMER NIGHTS
@@ -383,6 +437,8 @@ tracks:
   28356: "https://open.spotify.com/track/04Pyi60qbuoNs80FaN4ger"
 # Mc ERIK A BARBARA (4092) - SEN
   28658: ""
+# DORIS PINE (9253) - Youth (Diamonds)
+  28732: ""
 # JAROMÍR NOHAVICA (3261) - PODEJ MI RUKU  A PROJDEM VÁCLAVÁK
   29042: ""
 # BRATŘI EBENOVÉ (3876) - HOUSTON
@@ -391,12 +447,22 @@ tracks:
   29107: "spotify:track:4ePP9So5xRzspjLFVVbj90"
 # FERRY AID (9335) - LET IT BE
   29197: ""
+# BUGMEN (622) - Ollie
+  29403: ""
+# RUDI ZYGADLO (3137) - Symphaties Scrapbook
+  30232: ""
+# DIVIDED (8545) - Waiting ft. Veea
+  30297: ""
 # FRANTA KASL (9641) - A SVĚT SI TANČÍ DÁL
   30398: ""
 # VESELÝ DEN (9805) - Povídám a počítám
   31146: ""
+# B4 (9842) - Die Mitternachtsmaus/Půlnoční myš
+  31298: ""
 # JOHN PARR (9911) - ST.ELMO'S FIRE
   31548: ""
+# IGLOOGHOST (9960) - Chinchou/Melon Lantern Girl's Club
+  31811: ""
 # KRISTINA (3053) - NA BIELEHO KOŇA
   31859: ""
 # DEANA DAWSON (9981) - ROMANTIC WORLD
@@ -407,14 +473,24 @@ tracks:
   32458: "spotify:track:338VLpRiXpv6IpmnK5pUxT"
 # EWA FARNA (4499) - MÁM BOKY JAKO SKŘÍŇ
   32474: ""
+# ORIENT (10186) - Drown
+  32875: ""
+# MILAN DEMETER (10210) - KAJ TU SAL
+  33029: ""
 # MIXES (10214) - DUKHAL
   33035: ""
 # GYPSY SPIRIT (10090) - ŠUNEN ROMALE
   33325: ""
+# BENGAS (10273) - AJ ROMANE
+  33328: ""
+# ZULA (10288) - Not The Same
+  33446: ""
 # SZIDI TOBIAS (5326) - RÁNO
   33606: ""
 # LE ČHAVENDAR (10343) - ČAČIPEN
   33855: ""
+# EPAS (10157) - RUPUNI
+  34464: ""
 # OMC (10466) - HOW BIZZARE
   34587: "spotify:track:46q5BtHso0ECuTKeq70ZhW"
 # L'UBO VIRÁG (10091) - POŠTÁR
@@ -427,36 +503,54 @@ tracks:
   35329: ""
 # COLDPLAY (3230) - UP AND UP
   35626: "spotify:track:4a8pP5X2lxwU5aprY44jLn"
+# GULO ČAR (10272) - BIJAV
+  36294: ""
 # GIPSY HERY BAND (10211) - ME BISTERAV
   36298: ""
 # ABBA (2828) - MY LOVE, ME LIFE
   36302: "7qbQFKgGOxk7aoCBGwLZuA"
 # MARCEL ZMOŽEK (3804) - POJĎ SE MNOU LÉTAT VÝŠ
   36720: ""
+# MOLLY NILSSON (10910) - Think Pink
+  37063: ""
 # BLACK MAGIC (10938) - ROMANO PHIRIBEN (WANDERING OF THE GYPSIES)
   37202: ""
 # KLAUDIA VENS (10975) - VERÍM
   37348: ""
 # Babalet (6687) - Kytkový reggae - Babalet
   37482: ""
+# LIBERTAE (11006) - Ethereal
+  37511: ""
 # KAMILA JANOVIČOVÁ (11036) - HOLKA NEBO KLUK
   37636: ""
 # CANTA JUEGO (11043) - PATA PATA
   37653: ""
+# CAR SEAT HEADREST (10615) - Does It Feel Good (To Say Goodbye?)
+  37757: ""
 # ORCHESTER ANTHONY VENTURA (5109) - DON´T TELL ME WHY
   38393: ""
 # JANA CHLÁDKOVÁ (5407) - S VŮNÍ HEŘMÁNKOVOU
   38658: ""
 # Ray Baretto (11275) - Syracuse (instrumental)
   38837: ""
+# NEDVĚDI (3707) - MÁME JEN SEBE
+  39658: ""
 # PETER SHILLING (11538) - THE DIFERENT STORY
   39903: ""
 # MICHEL BUBLÉ feat.MEGHAN TRAINOR (11632) - SOMEDAY
   40318: "7t3q4ghl6rphMXn0oOJhUr"
+# JAREK ŠIMEK (11657) - SVATEBNÍ
+  40412: ""
 # PETR JANDA (3290) - JÁ NEJSEM ZLEJ
   40546: ""
+# TRU5TM3 X TANZE ELZE (11790) - Dorian
+  41008: ""
+# FROPLES (10714) - The City
+  41108: ""
 # PAVOL HABERA, TEAM (4184) - NEMÁM ČO STRATIŤ
   41619: "https://open.spotify.com/track/2gqPF6BCd1cNXEy3s6pEuY"
+# OR (11939) - Prach
+  41673: ""
 # GERI HALLIWELL (2997) - IT'S RAINING MAN
   41760: "https://open.spotify.com/track/7q3qX7Ees3FZtRFJXWgPZs"
 # JEAN MICHEL JARRE (4843) - AERO
@@ -535,10 +629,14 @@ tracks:
   44764: ""
 # JOSEF ZOCH (4306) - NEJLEPŠÍ ŽENSKÁ
   45135: ""
+# VUNDABAR (13063) - Aceton
+  45584: ""
 # ZBYNĚK FRIC, ZUZANA NORISOVÁ (13134) - LETNÍ LÁSKA
   45801: ""
 # ALŽBĚTA BOHDANOVÁ (12766) - HOŘÍM
   45833: ""
+# FOR YOU KATRINA (8596) - Wonderland
+  46154: ""
 # Paradis Vanesa (13261) - Joe Le Taxi
   46179: ""
 # SAMANTHA FOX (10463) - I ONLY WANT BE WITH YOU
@@ -561,6 +659,8 @@ tracks:
   48835: ""
 # ANGGUN, FLORENT PAGNY (14384) - NON VIES PARALLÉLES
   48859: ""
+# BLACK HOLE (14624) - AW
+  49497: ""
 # INCANTATION (6668) - CHACHARPAYA SHUFFLE
   49642: ""
 # PAPA ROACH (14822) - AMERICAN DREAM
@@ -575,12 +675,16 @@ tracks:
   51601: "https://open.spotify.com/track/33064BqXHOJyZXq0nEEqWA"
 # PH. D. (15708) - I Won´t Let You Down - PH. D.
   52410: ""
+# DAWN x MUMDANCE (15725) - Guardian Angel
+  52470: ""
 # BLUE EFECT (4080) - SLUNEČNÍ HROB
   54616: "4QIyz67FjIZ6qM7P7NQTDW"
 # ¨THE HUMAN LEAGUE (16600) - DON'T YOU WANT ME BABY
   55121: ""
 # THE KLF (16616) - LAST TRAIN TO TRANCENTRAL
   55180: ""
+# PSYCHOCANDY (11951) - 91
+  55760: ""
 # MIG 21 (4113) - HURÁ!
   55856: ""
 # VÁGNER PEPA (12496) - Čas je nám jen půjčený
@@ -589,12 +693,18 @@ tracks:
   55957: ""
 # Vašíček Jiří (10780) - Až potečou řeky pozpátku - Vašíček Jiří
   55972: ""
+# SLE (11208) - 180808SLE-nazvopis-Koryčany
+  56026: ""
 # MIKE OLDFIELD,  ANITA HEGERLAND (5533) - PICTURES IN THE DARK
   56051: ""
 # Toto (3072) - House of the Rising Sun
   56123: ""
 # Miloš Dodo Doležal (16882) - SOUDÍM
   56125: ""
+# CHAIN CULT (16884) - Isolated
+  56131: ""
+# DIIST (16915) - Melancholie
+  56191: ""
 # ROTTROVÁ MARIE/NĚMEC PETR (11119) - AŤ SOUSED SHŮRY BOUCHÁ
   56213: "spotify:track:7u5jZCXr6T0uF8FXBLtLIz"
 # BARRY WHITE & LISA STANSFIELD (16928) - All Around The World
@@ -603,12 +713,46 @@ tracks:
   56331: ""
 # Žbirka Miroslav (11177) - Folow Me
   56345: "https://open.spotify.com/track/16zg1xmfaABOsLVbTryf4j"
+# HELENA BLEHÁROVÁ (4935) - LETNÍ DEN
+  56362: ""
 # CEE LO GREEN (109) - F++K YOU
   43196: ""
 # Shakespears Sister (3054) - STAY
   7553: ""
 # PAUL SIMON, ART GARFUNKEL (3227) - MRS.ROBINSON
   8012: "spotify:track:0iOZM63lendWRTTeKhZBSC"
+# BEATLES (2995) - PENNY LANE
+  7486: "https://open.spotify.com/track/5dfvhl9mJqgMVLNm3LAMnG"
+# BEATLES (2995) - TICKET TO RIDE
+  10232: "https://open.spotify.com/track/55RzZKWf4ICmLH4ulzkXNG"
+# BEATLES (2995) - ALL MY LOVING
+  8400: "https://open.spotify.com/track/4joiWvli4qJVEW6qZV2i2J"
+# BEATLES (2995) - CAN'T BUY ME LOVE
+  8387: "https://open.spotify.com/track/3SdingSsFcZDZAyvcJbgAw"
+# BEATLES (2995) - I FEEL FINE
+  18099: "https://open.spotify.com/track/4gxs9En3aoaOm2J5wNMMm9"
+# BEATLES (2995) - A TASTE OF HONEY
+  12859: "https://open.spotify.com/track/7fh53ta3vAOGJMQ4i5tCHe"
+# BEATLES (2995) - WE CAN WORK IT OUT
+  9379: "https://open.spotify.com/track/7LNiAjyg9P2GKINTtN6Yt8"
+# BEATLES (2995) - SHE LOVES YOU
+  10313: "https://open.spotify.com/track/6nEkxYIEnrbYH7h1hJ8Xn6"
+# BEATLES (2995) - YESTERDAY
+  7717: "https://open.spotify.com/track/3BQHpFgAp4l80e1XslIjNI"
+# BEATLES (2995) - COME TOGETHER
+  18166: "https://open.spotify.com/track/2EqlS6tkEnglzr7tkKAAYD"
+# BEATLES (2995) - HEY JUDE
+  7531: "https://open.spotify.com/track/5xYC2ZJJ9TMJL8BOl85O2R"
+# BEATLES (2995) - LET IT BE
+  7632: "https://open.spotify.com/track/7iN1s7xHE4ifF5povM6A48"
+# BEATLES (2995) - PLEASE PLEASE ME
+  11389: "https://open.spotify.com/track/6EHuOufBeL6vk3TvVJB5qo"
+# BEATLES (2995) - A HARD DAY S NIGHT
+  12691: "https://open.spotify.com/track/1E4FcSqQs7U2RTebCNaYRH"
+# BEATLES (2995) - OB-LA-DI OB-LA-DA
+  11351: "https://open.spotify.com/track/1gFNm7cXfG1vSMcxPpSxec"
+# BEATLES (2995) - GET BACK
+  26496: "https://open.spotify.com/track/4MLBqAEzNN89o2M9h92Z26"
 
 artists:
 # UB 40
@@ -629,5 +773,7 @@ artists:
   3138: "Electric Light Orchestra"
 # BYRDS
   4029: "The Byrds"
+# BEATLES
+  2995: "The Beatles"
 
 ...
