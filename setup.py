@@ -34,6 +34,7 @@ setup(
     entry_points={
         "console_scripts": [
             "spotzurnal = spotzurnal.main:main",
+            "spotzurnal-rematch = spotzurnal.main:rematch",
             "spotzurnal-quirkgen = spotzurnal.quirkgen:quirkgen",
             "spotzurnal-aggregator = spotzurnal.aggregator:aggregator",
         ],

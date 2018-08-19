@@ -6,8 +6,8 @@ from collections import namedtuple, defaultdict
 import click
 
 from . import croapi
-from .main import ClickDate
 from .spotify import Spotify
+from .clickdate import ClickDate
 
 
 def parse_plname(spoplaylist):
