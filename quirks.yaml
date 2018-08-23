@@ -21,6 +21,8 @@ tracks:
   7723: "spotify:track:644VKFGgk2eWYZODUguM6m"
 # UB 40 (3178) - (CAN'T HELP) FALLING IN LOVE
   7733: "spotify:track:7ojJ4XvqBhBcteM0zjMebT"
+# ENIGMA (3157) - SADENESS-PART 1
+  7755: ""
 # LIMAHL (3196) - NEVERENDING STORY
   7765: "spotify:track:1F43XlPBiwAUUIhrUGzylO"
 # MELANIE C (3243) - FIRST DAY OF MY LIFE
@@ -67,6 +69,8 @@ tracks:
   8604: ""
 # RICCHI E POVERI (3528) - COMME VORREI
   8631: "https://open.spotify.com/track/0ilGk6kD6ligeP8q6hIMbp"
+# RŮZNÍ INTERPRETI (3628) - NEJHEZČÍ DÁREK
+  8647: ""
 # DAN BARTA/BÁJEČNÁ SHOW (3654) - PÍSEŇ HRABOŠE
   8721: ""
 # ŠÁRKA REZKOVÁ (3658) - BORŮVKOVÁ
@@ -77,8 +81,6 @@ tracks:
   8767: ""
 # KOREANA (3680) - HAND IN HAND
   8789: ""
-# DONNA SUMMER (3681) - I DON T WANNA GET HURT
-  8798: ""
 # MARC ALMOND/GENE PITNEY (3708) - SOMETHING S GOTTEN HOLD OF MY HEART
   8869: ""
 # DALIBOR JANDA (3525) - MODRÉ NEBE NAD HLAVOU
@@ -113,6 +115,8 @@ tracks:
   9283: "https://open.spotify.com/track/6uvhShJIuRyIULpot1Kixd"
 # MARCEL ZMOŽEK (3804) - LÁSKA JE NEJVĚTŠÍ DAR
   9285: ""
+# DAN BÁRTA (3192) - BÁJEČNÁ SHOW
+  9291: ""
 # ELÁN (3025) - KOČKA
   9362: ""
 # KEČUP (3710) - SLEPÁ
@@ -231,8 +235,6 @@ tracks:
   11970: ""
 # LUCIE VONDRÁČKOVÁ (3694) - LÁSKA NA STO LET
   11974: "https://open.spotify.com/track/7sO9Y3BBwBEPnKTnB1zRlT"
-# BOBBY McFERRIN (309) - DON´ T WORRY,BE HAPPY
-  11982: "spotify:track:5YbgcwHjQhdT1BYQ4rxWlD"
 # B.S.P. (4644) - ZEMĚ VZDÁLENÁ
   11987: ""
 # VIANA BARTOŠOVÁ (4699) - DOTEK LÁSKY
@@ -307,6 +309,8 @@ tracks:
   16234: "3sO5oZ9NLbAlU6h1qVCPJq"
 # INXS (3100) - NEVER TEARS US APART
   16282: "https://open.spotify.com/track/3pyTksNccLM1jRvzQ4zTke"
+# YO YO BAND (3896) - MÁ PRVNÍ LÁSKA SE DNES VDÁVÁ
+  16359: ""
 # IVA FRÜHLINGOVÁ (3363) - LA MUERTE
   16519: ""
 # ŽLUTÝ PES (3403) - INDIÁNSKÁ DÝMKA MÍRU
@@ -323,8 +327,12 @@ tracks:
   18035: ""
 # DNÉ (2087) - Like Physical (I Do Not Love remix)
   18049: ""
+# OTIS REDDING (6428) - (SITTIN´ON) THE DOCK OF THE BAY
+  18088: ""
 # RADEK TOMÁŠEK (3572) - ZPÍVAL JEN ROCKENROL,NIC VÍC
   18243: "https://open.spotify.com/track/5KTmvu3nHtxGXoqs8PRWWG"
+# SAN JUANITO (6758) - LLAMOR
+  19303: ""
 # DIRE STRAITS (2973) - SULTANS OF SWINGS
   19394: "spotify:track:37Tmv4NnfQeb0ZgUC4fOJj"
 # LES HUMHPRIES SINGERS (6793) - MEXICO
@@ -344,11 +352,11 @@ tracks:
 # NEDVĚDI (3707) - VŠECHNO NEJLEPŠÍ
   20944: ""
 # VLADIMÍR MIŠÍK (3146) - SLUNEČNÍ HROB
-  20949: ""
+  20949: "https://open.spotify.com/track/4suvrg9ElsEcCjOHnD3FJu"
 # LIONEL RICHIE (3333) - DANCIN´ ON THE CEILING
   21674: "1p3FSVGjDfFY3GPeGg9f2C"
 # JAMES BLUNT (3118) - WISEMAN
-  22566: ""
+  22566: "https://open.spotify.com/track/3fl78noR9kt12JYKuTAP4a"
 # TĚŽKEJ POKONDR (6050) - ČAJE Z INDIE
   22672: ""
 # FELIX SLOVÁČEK (3575) - INDIÁNSKÁ PÍSEŇ LÁSKY
@@ -374,7 +382,7 @@ tracks:
 # JAN KALOUSEK (3141) - ČAS SLUHŮ
   23770: ""
 # TOM JONES (3608) - IT S NO UNUSUAL
-  23792: ""
+  23792: "https://open.spotify.com/track/3TlIt0ReIxPsVZcOEivT5U"
 # MATĚJ RUPPERT (8126) - SON OF THE SUN
   24027: ""
 # PAVLÍNA JÍŠOVÁ/KARABINA/NEZMAŘI (8172) - BEDNA OD WHISKY
@@ -401,6 +409,8 @@ tracks:
   25896: ""
 # HISSING FAUNA (833) - Bad Kissingen
   26042: ""
+# NIGHTWORK (3487) - PÍSEŇ O LÁSCE
+  26081: "https://open.spotify.com/track/5o6vwUgc7RCmGUn00vb4ws"
 # THOOLA (2629) - Empty Box
   26147: ""
 # SHURA (8695) - Just Once
@@ -437,6 +447,8 @@ tracks:
   28356: "https://open.spotify.com/track/04Pyi60qbuoNs80FaN4ger"
 # Mc ERIK A BARBARA (4092) - SEN
   28658: ""
+# MISHA (1403) - NAOZAJISTNÉ DOBRÉ
+  28706: ""
 # DORIS PINE (9253) - Youth (Diamonds)
   28732: ""
 # JAROMÍR NOHAVICA (3261) - PODEJ MI RUKU  A PROJDEM VÁCLAVÁK
@@ -449,6 +461,8 @@ tracks:
   29197: ""
 # BUGMEN (622) - Ollie
   29403: ""
+# VÁCLAV NECKÁŘ (3489) - DR.DAMI DI DAM
+  30227: ""
 # RUDI ZYGADLO (3137) - Symphaties Scrapbook
   30232: ""
 # DIVIDED (8545) - Waiting ft. Veea
@@ -542,7 +556,7 @@ tracks:
 # JAREK ŠIMEK (11657) - SVATEBNÍ
   40412: ""
 # PETR JANDA (3290) - JÁ NEJSEM ZLEJ
-  40546: ""
+  40546: "https://open.spotify.com/track/6nvBgBRS3zMsPewR51Nkx7"
 # TRU5TM3 X TANZE ELZE (11790) - Dorian
   41008: ""
 # FROPLES (10714) - The City
@@ -623,10 +637,12 @@ tracks:
   44432: ""
 # ALŽBĚTA BOHDANOVÁ (12766) - S PÍSNÍ MEZI KŘÍDLY
   44486: ""
+# JANEK LEDECKÝ (3750) - VŠECHNY MOJE LÁSKY PADAJ ZE STROMŮ
+  44572: "https://open.spotify.com/track/0Tm6fRstNdEVE0OLE85xn3"
 # ALŽBĚTA BOHDANOVÁ (12766) - V POTOCE SE VODA TOČÍ
   44668: ""
 # TOM PETTY AND THE HEARTBREAKERS (12823) - INTO THE GREAT ONE OPEN
-  44764: ""
+  44764: "https://open.spotify.com/track/63xBnyUVKIupzjHno4wFs3"
 # JOSEF ZOCH (4306) - NEJLEPŠÍ ŽENSKÁ
   45135: ""
 # VUNDABAR (13063) - Aceton
@@ -655,6 +671,8 @@ tracks:
   47538: ""
 # Lichožrouti (11304) - Hihlík
   47839: ""
+# GIPSY.CZ (3471) - JE TO TAK
+  48295: ""
 # PH ELECTRO (14377) - STEREO MEXICO
   48835: ""
 # ANGGUN, FLORENT PAGNY (14384) - NON VIES PARALLÉLES
@@ -715,10 +733,20 @@ tracks:
   56345: "https://open.spotify.com/track/16zg1xmfaABOsLVbTryf4j"
 # HELENA BLEHÁROVÁ (4935) - LETNÍ DEN
   56362: ""
+# THIN LIZZY (6130) - DANCIN' IN THE MOONLIGHT
+  56408: "https://open.spotify.com/track/6BmzbaB08O0FjHXeS0cR5b"
+# STING a Stewie Wonder (16984) - Brand New Day - 1999 LIVE
+  56428: ""
+# GOTT KAREL (10146) - LADY KARNEVAL - DEUTCH
+  56520: "https://open.spotify.com/track/63P677HpdthKTQpYmPzS8c"
+# DONNA SUMMER (3681) - I DON T WANNA GET HURT
+  8798: "https://open.spotify.com/track/0UnPK0m3aK5rCbaprv2cqV"
+# BOBBY McFERRIN (309) - DON´ T WORRY,BE HAPPY
+  11982: "spotify:track:5YbgcwHjQhdT1BYQ4rxWlD"
 # CEE LO GREEN (109) - F++K YOU
-  43196: ""
+  43196: "https://open.spotify.com/track/3ydfhgIZIc2j39NLIhpJpq"
 # Shakespears Sister (3054) - STAY
-  7553: ""
+  7553: "https://open.spotify.com/track/3gSQhilNTA4DpPzD632CJF"
 # PAUL SIMON, ART GARFUNKEL (3227) - MRS.ROBINSON
   8012: "spotify:track:0iOZM63lendWRTTeKhZBSC"
 # BEATLES (2995) - PENNY LANE
@@ -753,6 +781,8 @@ tracks:
   11351: "https://open.spotify.com/track/1gFNm7cXfG1vSMcxPpSxec"
 # BEATLES (2995) - GET BACK
   26496: "https://open.spotify.com/track/4MLBqAEzNN89o2M9h92Z26"
+# DIANA ROSS, SUPREMES (4698) - WHERE DID OUR LOVE GO
+  40766: "https://open.spotify.com/track/69RH84na5iUNwrwxpgjC5j"
 
 artists:
 # UB 40
@@ -775,5 +805,7 @@ artists:
   4029: "The Byrds"
 # BEATLES
   2995: "The Beatles"
+# GOTT KAREL
+  10146: "Karel Gott"
 
 ...
