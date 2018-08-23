@@ -97,9 +97,13 @@ def search_spotify_track(sp, croartist, crotitle):
         tra.append(tr)
         ra.append(ar+tr)
     n, r = max(enumerate(ra), key=lambda x: x[1])
-    print_spotify_track(items[n], fg="green")
-    click.secho(f"^ Matched with {ara[n]:.2f}, {tra[n]:.2f}", fg="cyan")
-    return items[n]
+    if r > 0.5:
+        print_spotify_track(items[n], fg="green")
+        click.secho(f"^ Matched with {ara[n]:.2f}, {tra[n]:.2f}", fg="cyan")
+        return items[n]
+    else:
+        print_spotify_track(items[n], fg="red")
+        click.secho(f"^ Unmatched with {ar:.2f}, {tr:.2f}", fg="red")
 
 
 def get_plname(station, date):
