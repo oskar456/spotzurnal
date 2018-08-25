@@ -19,10 +19,14 @@ tracks:
   7692: ""
 # DHT (3171) - LISTEN TO YOUR HEART
   7723: "spotify:track:644VKFGgk2eWYZODUguM6m"
+# SLADE (3173) - FAR FAR AWAY
+  7725: ""
 # UB 40 (3178) - (CAN'T HELP) FALLING IN LOVE
   7733: "spotify:track:7ojJ4XvqBhBcteM0zjMebT"
 # ENIGMA (3157) - SADENESS-PART 1
   7755: ""
+# SLADE (3173) - MY OH MY
+  7760: ""
 # LIMAHL (3196) - NEVERENDING STORY
   7765: "spotify:track:1F43XlPBiwAUUIhrUGzylO"
 # MELANIE C (3243) - FIRST DAY OF MY LIFE
@@ -110,7 +114,9 @@ tracks:
 # ŠÁRKA REZKOVÁ (3658) - POJĎ A DEJ MI PUSU
   9134: ""
 # KISS (3814) - I WAS MADE FOR LOVING YOU
-  9173: ""
+  9173: "https://open.spotify.com/track/07q0QVgO56EorrSGHC48y3"
+# MARTA KUBIŠOVÁ (3535) - POJĎ A MĚJ MĚ RÁD
+  9272: "https://open.spotify.com/track/62fCUDUXVPrKXEzyy3ptfS"
 # ČESKO SLOVENSKÁ SUPERSTAR 2009 (3854) - PRÍBEH NEKONČÍ
   9283: "https://open.spotify.com/track/6uvhShJIuRyIULpot1Kixd"
 # MARCEL ZMOŽEK (3804) - LÁSKA JE NEJVĚTŠÍ DAR
@@ -189,6 +195,8 @@ tracks:
   10312: "spotify:track:6YYQNvlUDw2zYO2zx4b54m"
 # JIŘÍ SUCHÝ (3595) - BABETA
   10408: "https://open.spotify.com/track/0z5ZY3oEVJMiG8busCyjDN"
+# ELTON JOHN, KIKI DEE (4215) - DON´T GO BREAKIN´  MY HEART
+  10412: "https://open.spotify.com/track/7HW5WIw7ZgZORCzUxv5gW5"
 # HANA LOUNOVÁ (4218) - ČEKEJ NA MŮJ JUMBO JET
   10418: ""
 # KEKS (4252) - KDYŽ HOLKY PLÁČOU
@@ -256,7 +264,7 @@ tracks:
 # VĚRA ŠPINAROVÁ (3190) - KOUSEK ŠTĚSTÍ PŘIJĎ MI DÁT
   12694: ""
 # TINA TURNER (3006) - I DON T WANNA LOSE YOU
-  12721: ""
+  12721: "https://open.spotify.com/track/3ko1GJaUNtwFaxp8hlhhWq"
 # BRATŘI EBENOVÉ (3876) - JÁ NA TOM DĚLÁM
   12729: ""
 # OCEÁN (3012) - PRÁZDNÁ ULICE
@@ -403,6 +411,8 @@ tracks:
   25258: ""
 # PEACH KELLI POP (8485) - Mindreader
   25357: ""
+# V.Bartošová (8499) - Adéla
+  25450: ""
 # CELTIC SPIRIT (5525) - LYRA (TA MUID)
   25672: "spotify:track:3RkdMos2jA6tGqSODLoUGb"
 # LES REYES (8599) - QUANDO,QUANDO,QUANDO
@@ -687,10 +697,14 @@ tracks:
   50474: ""
 # ELTON JOHN (3103) - CAN YOU FELL THE LOVE TONIGHT
   50704: "4f6jZRNyjZQ8ltv1txgZUG"
+# TURNER TINA (13029) - GOLDEN EYE
+  51147: "spotify:track:528QhCT2v3HgD71RmrSUNW"
 # MR. PRESIDENT (12867) - JO JO ACTION
-  51267: ""
+  51267: "https://open.spotify.com/track/75LAaoFubEA34fwwLc6xUK"
 # OFENBACH VS.LACK OF AFRO (15071) - PARTY
   51601: "https://open.spotify.com/track/33064BqXHOJyZXq0nEEqWA"
+# Lenka Slabá (5708) - Venkovanka/Lenka Slabá
+  51850: ""
 # PH. D. (15708) - I Won´t Let You Down - PH. D.
   52410: ""
 # DAWN x MUMDANCE (15725) - Guardian Angel
@@ -739,6 +753,8 @@ tracks:
   56428: ""
 # GOTT KAREL (10146) - LADY KARNEVAL - DEUTCH
   56520: "https://open.spotify.com/track/63P677HpdthKTQpYmPzS8c"
+# Vacek (17041) - Otakárek Okatý
+  56594: ""
 # DONNA SUMMER (3681) - I DON T WANNA GET HURT
   8798: "https://open.spotify.com/track/0UnPK0m3aK5rCbaprv2cqV"
 # BOBBY McFERRIN (309) - DON´ T WORRY,BE HAPPY
@@ -807,5 +823,7 @@ artists:
   2995: "The Beatles"
 # GOTT KAREL
   10146: "Karel Gott"
+# TURNER TINA
+  13029: "Tina Turner"
 
 ...
