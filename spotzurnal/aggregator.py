@@ -43,48 +43,7 @@ def get_plname(station, month):
     )
 
 
-@click.command()
-@click.option(
-    "--credentials", "-c",
-    metavar="<credentials_json_file>",
-    show_default=True,
-    type=click.Path(dir_okay=False),
-    default=str(Path(click.get_app_dir("spotzurnal")) / "credentials.json"),
-    help="Path where to store credentials.",
-)
-@click.option(
-    "--username", "-u",
-    metavar="USER",
-    help="Spotify user name",
-)
-@click.option(
-    "--month", "-m",
-    type=ClickDate("%Y-%m"),
-    default=datetime.date.today(),
-    show_default=True,
-    help="The month to aggregate",
-)
-@click.option(
-    "--station", "-s",
-    type=click.Choice(croapi.get_cro_stations()),
-    default="radiozurnal",
-)
-@click.option(
-    "--mintracks", "-m",
-    type=click.INT,
-    default=0,
-    show_default=True,
-    help="Minimum number of tracks in the output playlist",
-)
-def aggregator(credentials, username, month, station, mintracks):
-    """
-    Aggregate the most popular songs from daily playlists into a new playlist.
-    """
-    sp = Spotify(username=username, credfile=credentials)
-    playlists = [
-        parse_plname(p)
-        for p in sp.get_all_data(sp.current_user_playlists, limit=50)
-    ]
+def do_aggregate(sp, playlists, month, station, mintracks):
     playlists = [
         p for p in playlists
         if p
@@ -102,6 +61,7 @@ def aggregator(credentials, username, month, station, mintracks):
             fields="next,items(track(id))",
         ):
             counts[t["track"]["id"]] += 1
+    print()
     rating = defaultdict(list)
     for trackid, rate in counts.items():
         rating[rate].append(trackid)
@@ -130,3 +90,53 @@ def aggregator(credentials, username, month, station, mintracks):
             playlist,
             offset=100,
         )
+
+
+@click.command()
+@click.option(
+    "--credentials", "-c",
+    metavar="<credentials_json_file>",
+    show_default=True,
+    type=click.Path(dir_okay=False),
+    default=str(Path(click.get_app_dir("spotzurnal")) / "credentials.json"),
+    help="Path where to store credentials.",
+)
+@click.option(
+    "--username", "-u",
+    metavar="USER",
+    help="Spotify user name",
+)
+@click.option(
+    "--month", "-m",
+    type=ClickDate(),
+    default="this month",
+    show_default=True,
+    help="The month to aggregate",
+)
+@click.option(
+    "--station", "-s",
+    type=click.Choice(croapi.get_cro_stations()),
+    default=["radiozurnal", ],
+    show_default=True,
+    help="The station to grab (can be used multiple times)",
+    multiple=True,
+)
+@click.option(
+    "--mintracks", "-m",
+    type=click.INT,
+    default=0,
+    show_default=True,
+    help="Minimum number of tracks in the output playlist",
+)
+def aggregator(credentials, username, month, station, mintracks):
+    """
+    Aggregate the most popular songs from daily playlists into a new playlist.
+    """
+    sp = Spotify(username=username, credfile=credentials)
+    playlists = [
+        parse_plname(p)
+        for p in sp.get_all_data(sp.current_user_playlists, limit=50)
+    ]
+    for s in station:
+        do_aggregate(sp, playlists, month, s, mintracks)
+        print()

@@ -28,15 +28,19 @@ from .aggregator import parse_plname
 )
 @click.option(
     "--date", "-d",
-    type=ClickDate('%Y-%m-%d'),
-    default=datetime.date.today(),
+    type=ClickDate(),
+    default=["today", ],
     show_default=True,
-    help="Date of the playlist",
+    help="Date of the playlist (can be used multiple times)",
+    multiple=True,
 )
 @click.option(
     "--station", "-s",
     type=click.Choice(croapi.get_cro_stations()),
-    default="radiozurnal",
+    default=["radiozurnal", ],
+    show_default=True,
+    help="The station to grab (can be used multiple times)",
+    multiple=True,
 )
 @click.option(
     "--replace/--no-replace", "-r",
@@ -68,7 +72,9 @@ def main(credentials, username, date, station, replace, cache, quirks):
         q = safe_load(quirks)
     else:
         q = None
-    matcher.match_cro_playlist(sp, date, station, replace, c, q)
+    for st, d in ((st, d) for d in date for st in station):
+        matcher.match_cro_playlist(sp, d, st, replace, c, q)
+        print()
 
 
 @click.command()
@@ -87,7 +93,7 @@ def main(credentials, username, date, station, replace, cache, quirks):
 )
 @click.option(
     "--month", "-m",
-    type=ClickDate('%Y-%m'),
+    type=ClickDate(),
     default=datetime.date.today(),
     show_default=True,
     help="Month of the playlist",

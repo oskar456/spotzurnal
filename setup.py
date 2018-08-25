@@ -30,6 +30,7 @@ setup(
         "spotipy",
         "requests",
         "python-dateutil",
+        "dateparser",
     ],
     entry_points={
         "console_scripts": [

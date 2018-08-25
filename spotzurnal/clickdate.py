@@ -1,32 +1,29 @@
 import datetime
 
 import click
+from dateparser import parse
 
 
 class ClickDate(click.ParamType):
     """
-    A date object parsed via datetime.strptime.
+    A date object parsed via dateparser
     """
 
     name = "date"
 
-    def __init__(self, fmt):
-        self.fmt = fmt
-
     def get_metavar(self, param):
-        return self.fmt
+        return "<date string>"
 
     def convert(self, value, param, ctx):
         if isinstance(value, datetime.date):
             return value
         try:
-            return datetime.datetime.strptime(value, self.fmt).date()
+            return parse(value).date()
         except ValueError as ex:
             self.fail(
                 'Could not parse datetime string "{datetime_str}"'
-                'formatted as {format} ({ex})'.format(
+                ' ({ex})'.format(
                     datetime_str=value,
-                    format=self.fmt,
                     ex=ex,
                 ),
                 param,
