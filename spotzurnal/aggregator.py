@@ -107,7 +107,7 @@ def do_aggregate(sp, playlists, month, station, mintracks):
     help="Spotify user name",
 )
 @click.option(
-    "--month", "-m",
+    "--month",
     type=ClickDate(),
     default="this month",
     show_default=True,
