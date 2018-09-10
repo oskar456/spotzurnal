@@ -66,13 +66,17 @@ def do_aggregate(sp, playlists, month, station, mintracks):
     for trackid, rate in counts.items():
         rating[rate].append(trackid)
     favtracks = []
-    total = 0
+    total, grand = 0, 0
     for rate in sorted(rating.keys(), reverse=True):
         tracks = rating[rate]
         if total < mintracks:
             favtracks.extend(tracks)
         total += len(tracks)
-        print(f"Count: {rate:2} Tracks: {len(tracks):4} Total: {total:4}")
+        grand += len(tracks) * rate
+        print(
+            f"Count: {rate:2} Tracks: {len(tracks):4} Total: {total:4}"
+            f" Grand total: {grand:4}",
+        )
     if favtracks:
         plname = get_plname(station, month)
         print(plname)
