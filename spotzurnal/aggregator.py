@@ -1,5 +1,4 @@
 import datetime
-import locale
 from pathlib import Path
 from collections import namedtuple, defaultdict
 
@@ -35,10 +34,13 @@ def parse_plname(spoplaylist):
 
 
 def get_plname(station, month):
-    locale.setlocale(locale.LC_TIME, "cs_CZ")
+    mname = (
+        None, "leden", "únor", "březen", "duben", "květen", "červen",
+        "červenec", "srpen", "září", "říjen", "listopad", "prosinec",
+    )
     return "{} TOP {} {}".format(
         croapi.get_cro_station_name(station),
-        month.strftime("%B").lower(),
+        mname[month.month],
         month.year,
     )
 
